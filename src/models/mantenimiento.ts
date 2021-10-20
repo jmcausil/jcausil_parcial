@@ -1,8 +1,10 @@
 const Sequelize = require('sequelize');
 
 import { database } from "../database/db";
+import {Equipos} from "./equipos";
 
-export class User extends Sequelize.Model {
+
+export class Mantenimientos extends Sequelize.Model {
     public id!: string;
     public fecha!: string;
     public descripcion!: string;
@@ -12,7 +14,7 @@ export class User extends Sequelize.Model {
 
 }
 
-export interface UserI{
+export interface MantenimientosI{
 
     id: string;
     fecha: string;
@@ -21,7 +23,7 @@ export interface UserI{
     
 }
 
-User.init (
+Mantenimientos.init (
     {
         id: {
             type: Sequelize.DataTypes.STRING,
@@ -52,4 +54,7 @@ User.init (
 
 
 );
+Equipos.hasMany(Mantenimientos)
+Mantenimientos.belongsTo(Equipos)
+
 
