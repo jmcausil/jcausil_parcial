@@ -1,14 +1,14 @@
 
 import { Request, Response } from "express";
-import { User } from "../models/equipos";
+import { Equipos } from "../models/equipos";
 
 
 
-export class UserController {
+export class EquiposController {
     public index(req: Request, res: Response) {
         
-        User.findAll({})   //para traer todos los registros que tengan usuarios 
-        .then((users: Array<User>) => res.json(users))
+        Equipos.findAll({})   //para traer todos los registros que tengan usuarios 
+        .then((Equipos: Array<Equipos>) => res.json(Equipos))
         .catch((err: Error) => res.status(500).json(err));
     }
 
